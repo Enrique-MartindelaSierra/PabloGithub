@@ -6,15 +6,31 @@
 		document.write(item4);		
 	}
 	*/
-	function hacerLista(){
-		
-		
+	function hacerLista(t,f){
+		let lista=document.createElement("ul");
+		let elemento,texto;
+		for(let i=1;i<=f;i++){
+			elemento=document.createElement("li");
+			texto=document.createTextNode(t+"x"+i+"="+(t*i));
+			elemento.appendChild(texto);
+			lista.appendChild(elemento);
+		}
+		let formulario=document.formu;
+		document.body.insertBefore(lista,formulario);
 	}
-	function hacerParrafos(){
+	
+
+	
+	
+	
+	
+	
+	
+	function hacerParrafos(t,f){
 		
 		
 	}	
-	function hacerDesplegable(){
+	function hacerDesplegable(t,f){
 		
 		
 	}	
