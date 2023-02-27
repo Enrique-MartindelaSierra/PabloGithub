@@ -16,7 +16,7 @@
 		}
 	</style>
 	<script>
-		function validar(){
+		/*function validar(){
 			let f=document.formulario;
 			
 			if(f.nombre.value==""){
@@ -45,12 +45,58 @@
 				alert("Error el checkbox de información debe marcarse");
 				return false;
 			}
-		}
+		}*/
+		
+		function validarNombre(){
+			let f=document.formulario;
 
+
+				
+			
+		}
+		function validarApellidos(){
+			let f=document.formulario;
+
+			//CUANDO SEAN VARIAS VALIDACIONES TENERLAS VINCULADAS
+			if(f.nombre.value=="")
+				f.nombre.setCustomValidity("Error el nombre no puede quedar vacío");
+			else{
+				f.nombre.setCustomValidity("");
+				if(f.nombre.value.length<=5)
+					f.nombre.setCustomValidity("Error el nombre debe tener mínimo 6 letras");
+				else
+					f.nombre.setCustomValidity("");
+			}
+
+			if(f.apellidos.value=="")
+				f.apellidos.setCustomValidity("Error los apellidos no pueden quedar vacío");
+			else{
+				f.apellidos.setCustomValidity("");			
+				if(f.apellidos.value.length<=10)
+					f.apellidos.setCustomValidity("Error los apellidos debe tener mínimo 11 letras");
+				else
+					f.apellidos.setCustomValidity("");	
+			}
+			
+			if(!f.informacion.checked)
+				f.informacion.setCustomValidity("Error el check información debe marcarse");
+			else
+				f.informacion.setCustomValidity("");
+
+		}		
+		function validarCheck(){
+			let f=document.formulario;
+
+		}		
+		
 		window.onload=function(){
 			let f=document.formulario;
-			f.onsubmit=validar;
-			
+			//f.onsubmit=validar;
+			f.nombre.setCustomValidity("Error el nombre no puede quedar vacío");
+			f.apellidos.setCustomValidity("Error los apellidos no pueden quedar vacío");
+			f.nombre.oninput=validarCustom;
+			f.apellidos.onblur=validarCustom;
+			f.informacion.addEventListener("click",validarCustom);
 			
 			
 			//document.formulario.nombre.setCustomValidity("Error el nombre no puede estar vacío");
