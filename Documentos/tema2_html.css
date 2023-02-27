@@ -1,0 +1,197 @@
+/*----------------Elementos genéricos-----------------*/
+
+body {
+    background: white;
+    font-size: 11pt; 
+    font-family: arial,sans-serif,serif,Helvetica; 
+    color: black; 
+    text-align:justify; 
+    }
+
+p {
+    text-indent: 2em;
+    }  
+    
+li {
+    margin-top: 10px;
+    }
+
+.comentarios {
+    color: green;
+    }
+
+/*----------------------------------------------------*/
+    
+/*---------------Índice de las páginas----------------*/
+
+#indice {
+    /*text-align: left; 
+    position: absolute;
+    left: 0px;
+    top: 64px;
+    width: 200px;
+    float: left;
+    width: 20%;*/
+    }
+
+#indice ul{
+	list-style-type: none;
+	}
+
+#indice a {
+    color: green;
+    display: block;
+    text-decoration: none;
+    }
+
+#indice a:visited {
+    color: green;
+    }
+
+#indice a:hover {
+    color: green;
+    background-color: #78A;
+    text-decoration: underline;
+    /*border-right: 15px solid;
+    border-left: 1px solid;*/
+    }
+#indice li.paginaactual {
+    font-weight: bold;
+    text-decoration: underline;
+    color: green;
+    }
+/*----------------------------------------------------*/
+
+/*--------------Cabecera de las páginas---------------*/
+
+#cabecera {
+    /*position: absolute;
+    top: 0px;
+    left: 0px;*/
+    width: 100%;
+    height: 60px;
+    z-index: 1;
+    background-color: #CCC;
+    }
+       
+#cabecera h1 {
+    color: #FF9A00;
+    text-align: right;
+    margin-top: 0px;
+    padding-top: 10px;
+    padding-right: 15px;
+	}
+
+/*---------------Cuerpo de las páginas----------------*/
+
+#cuerpo {
+    background: white;
+    /*position: absolute;
+    width: 583px;*/
+    float: right;
+    width: 90%;
+    /*left: 215px;
+    top: 65px;*/
+    padding: 15px;
+    border: none;
+    border-left: 2px solid #FF9727;
+    }
+
+#cuerpo ul#bibliografia{
+    list-style-type: square;
+    }
+
+#cuerpo pre#codigo_cursor:hover {
+	cursor: url("./imagenes/jack.ico"),auto;
+	}
+#cuerpo .imagenes {
+	text-align: center;
+	text-indent: 0em;
+	}
+
+#cuerpo .imagenes img {
+    max-width: 400px;
+}	
+	  
+#cuerpo a:link {
+    color: blue;
+    text-decoration: none;
+    }
+
+#cuerpo a:visited {
+    color: blue;
+    text-decoration: none;
+    }
+
+#cuerpo a:hover {
+    color: #DD0000;
+    text-decoration: underline;
+    }
+
+/*----------------------------------------------------*/
+
+/*--------------Cajas de los ejercicios---------------*/
+
+.ejercicios {
+    /*background: aqua;*/
+    /*font-family: monospace, courier;*/
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    /*border-width: 1px;
+    border-style: dashed; */
+    }
+
+.ejercicios p {
+    text-indent: 0em;
+    }
+   
+/*----------------------------------------------------*/
+
+/*----------Cajas de los ejemplos de código-----------*/ 
+
+.codigo {
+    font-size: 9pt;
+    font-family: monospace;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    border-width: 1px;
+    border-style: solid; 
+    background: yellow;
+    padding: 10px;
+	/*width: 600px;*/
+	width: 70%;
+	overflow: auto;
+    }
+
+.ejemplo {
+    font-size: 9pt;
+    font-family: Arial;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    border-width: 1px;
+    border-style: solid; 
+    background: yellow;
+    padding: 10px;
+	/*width: 600px;*/
+	width: 70%;
+	overflow: auto;
+    }
+
+/*----------------------------------------------------*/
+table {
+    margin: auto;
+    text-align: center;
+    border: 2px solid black;
+    border-collapse: collapse;
+    }
+
+td,th {
+    border: 1px solid black;   
+    }

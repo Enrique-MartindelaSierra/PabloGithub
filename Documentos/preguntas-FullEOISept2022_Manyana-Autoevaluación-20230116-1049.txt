@@ -1,0 +1,53 @@
+// question: 0  name: Switch category to $course$/Por defecto en JavaEOIJunio2020/Autoevaluación
+$CATEGORY: $course$/Por defecto en JavaEOIJunio2020/Autoevaluación
+
+
+// question: 418  name: 6
+::6::[html]<p>¿Qué es lo que más te ha gustado del curso esta semana y qué mejorarías para la siguiente?<br></p>{}
+
+
+// question: 419  name: 1
+::1::[html]<p>¿Cómo te parece el ritmo de la clase esta semana?<br></p>{
+	=%100%<p>Demasiado lento<br></p>#
+	=%100%<p>Lento<br></p>#
+	=%100%<p>Ha estado bien así.<br></p>#
+	=%100%<p>Rápido<br></p>#
+	=%100%<p>Demasiado rápido<br></p>#
+}
+
+
+// question: 420  name: 2
+::2::[html]¿Qué te parece la cantidad de ejercicios realizados?<br>{
+	=%100%Me parecen pocos necesito hacer más, aunque vayamos más lentos<br>#
+	=%100%<p>Hacemos un número suficiente, a mi me vale<br></p>#
+	=%100%<p>Hacemos demasiados, tenemos que no hacer tantos y avanzar más rápido<br></p>#
+}
+
+
+// question: 421  name: 3
+::3::[html]<p>¿Las explicaciones de esta semana te han parecido suficientes?<br></p>{
+	=%100%<p>No, necesito que explique más detalladamente aunque vayamos más lentos.<br></p>#
+	=%100%<p>Sí, las cosas las explica suficientemente, me ha parecido bien.<br></p>#
+	=%100%<p>Explica demasiado las cosas, cuando son cosas triviales que no necesitamos perder tanto tiempo.<br></p>#
+}
+
+
+// question: 422  name: 4
+::4::[html]<p>¿Me resuelve las dudas?<br></p>{
+	=%100%<p>No, va tan rápido que ni me da tiempo a preguntar<br></p>#
+	=%100%<p>No he tenido dudas, pero cuando lo he necesitado me ha respondido<br></p>#
+	=%100%<p>Sí, me las responde muy bien.<br></p>#
+	=%100%<p>Me las responde, pero yo me quedo igual y me da palo volverle a preguntar<br></p>#
+}
+
+
+// question: 423  name: 5
+::5::[html]<p>¿Estas contento con esta semana en el curso (de 1 a 5)?<br></p>{
+	=%100%<p>(1) Nada contento, no he aprendido nada<br></p>#
+	=%100%<p>(2) Un poco contento, algo he aprendido pero no mucho<br></p>#
+	=%100%<p>(3) Contento, he aprendido cosas aunque me esperaba más<br></p>#
+	=%100%(4) Bastente contento, he aprendido mucho<br>#
+	=%100%<p>(5) Genial!, esto es mejor de lo que esperaba<br></p>#
+}
+
+
