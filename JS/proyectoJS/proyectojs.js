@@ -6,12 +6,34 @@
 		document.write(item4);		
 	}
 	*/
-	function hacerLista(t,f){
+	
+	function cambiarEstructura(){
+		let f=document.formu;
+		let tablaM=f.tabla.value;
+		let cantidad=f.cantidad.value;
+		
+		
+		if(this.id=="tabla")
+			hacerLista(tablaM,cantidad);
+		else if(this.id=="lista")
+			hacerDesplegable(tablaM,cantidad);
+		else if(this.id=="desplegable")
+			hacerParrafos(tablaM,cantidad);
+		else
+			hacerTabla(tablaM,cantidad);
+		
+		this.parentNode.removeChild(this);
+		
+	}
+	
+	function hacerLista(tablaMulti,row){
 		let lista=document.createElement("ul");
+		lista.id="lista";
+		lista.onclick=cambiarEstructura;
 		let elemento,texto;
-		for(let i=1;i<=f;i++){
+		for(let i=1;i<=row;i++){
 			elemento=document.createElement("li");
-			texto=document.createTextNode(t+"x"+i+"="+(t*i));
+			texto=document.createTextNode(tablaMulti+"x"+i+"="+(tablaMulti*i));
 			elemento.appendChild(texto);
 			lista.appendChild(elemento);
 		}
@@ -20,13 +42,15 @@
 	}
 	
 	
-	function hacerParrafos(t,f){
+	function hacerParrafos(tablaMulti,row){
 		let contenedor=document.createElement("div");
+		contenedor.id="parrafos";
+		contenedor.onclick=cambiarEstructura;
 		contenedor.style.border="1px solid black";
 		let elemento,texto;
-		for(let i=1;i<=f;i++){
+		for(let i=1;i<=row;i++){
 			elemento=document.createElement("p");
-			texto=document.createTextNode(t+"x"+i+"="+(t*i));
+			texto=document.createTextNode(tablaMulti+"x"+i+"="+(tablaMulti*i));
 			elemento.appendChild(texto);
 			contenedor.appendChild(elemento);
 		}
@@ -34,13 +58,15 @@
 		document.body.insertBefore(contenedor,formulario);		
 		
 	}	
-	function hacerDesplegable(t,f){
+	function hacerDesplegable(tablaMulti,row){
 		let despl=document.createElement("select");
+		despl.id="desplegable";
+		despl.onchange=cambiarEstructura;
 		let elemento,texto;
-		for(let i=1;i<=f;i++){
+		for(let i=1;i<=row;i++){
 			elemento=document.createElement("option");
 			elemento.value="opcion"+i;
-			texto=document.createTextNode(t+"x"+i+"="+(t*i));
+			texto=document.createTextNode(tablaMulti+"x"+i+"="+(tablaMulti*i));
 			elemento.appendChild(texto);
 			despl.appendChild(elemento);
 		}
@@ -57,19 +83,21 @@
 		celda.appendChild(texto);
 		row.appendChild(celda);					
 	}	
-	function hacerTabla(menor,mayor){
+	function hacerTabla(tablaMulti,row){
 		let tabla=document.createElement("table");
+		tabla.id="tabla";
+		tabla.onclick=cambiarEstructura;
 		tabla.style.border="1px solid black";
 		tabla.style.borderCollapse="collapse";
 		let fila;
 		
-		for(let i=1;i<=mayor;i++)
+		for(let i=1;i<=row;i++)
 		{
 			fila=document.createElement("tr");
 			
-			hacerCelda(fila,menor+"x"+i);
+			hacerCelda(fila,tablaMulti+"x"+i);
 			hacerCelda(fila,"=");
-			hacerCelda(fila,menor*i);
+			hacerCelda(fila,tablaMulti*i);
 			tabla.appendChild(fila);
 		}
 		let formulario=document.formu;
