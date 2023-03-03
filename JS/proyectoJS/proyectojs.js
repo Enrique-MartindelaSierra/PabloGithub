@@ -150,6 +150,59 @@
 							alert("Hasta luego");
 		}
 	}
+	
+	function anyadirElemento(){
+		let estructuraValor=document.formu.estructura.value;
+		let voyPor=++document.formu.cantidad.value;
+		let tablaMulti=document.formu.tabla.value;
+		let estructura=document.body.children[0];
+		
+		if(voyPor>10){
+			alert("Error no podemos añadir más elementos");
+			document.formu.cantidad.value--;
+			return;
+		}
+			
+		
+		if(estructuraValor=="PARRAFOS"){
+			let p=document.createElement("p");
+			let texto=document.createTextNode(tablaMulti+"x"+voyPor+"="+(tablaMulti*voyPor));
+			p.appendChild(texto);
+			estructura.appendChild(p);	
+		}
+		else if(estructuraValor=="LISTA"){
+			let li=document.createElement("li");
+			let texto=document.createTextNode(tablaMulti+"x"+voyPor+"="+(tablaMulti*voyPor));
+			li.appendChild(texto);
+			estructura.appendChild(li);
+		}
+		else if(estructuraValor=="DESPLEGABLE"){
+			let opt=document.createElement("option");
+			opt.value="opcion"+voyPor;
+			let texto=document.createTextNode(tablaMulti+"x"+voyPor+"="+(tablaMulti*voyPor));
+			opt.appendChild(texto);
+			estructura.appendChild(opt);			
+		}	
+		else if(estructuraValor=="TABLA"){
+			let fila=document.createElement("tr");
+			hacerCelda(fila,tablaMulti+"x"+voyPor);
+			hacerCelda(fila,"=");
+			hacerCelda(fila,tablaMulti*voyPor);
+			estructura.appendChild(fila);
+		}	
+	}
+	
+	function quitarElemento(){
+		let estructura=document.body.children[0];
+		let hijosEstructura=estructura.children;
+		if(hijosEstructura.length>0){
+			estructura.removeChild(hijosEstructura[hijosEstructura.length-1]);
+			document.formu.cantidad.value--;
+		}
+		else
+			alert("Error ya no hay elemento a eliminar");
+	}
+
 
 	function validar(){
 		let f=document.formu;
@@ -164,7 +217,29 @@
 		if(f.estructura.value==""){
 			alert("Error debe marcar una estructura");
 			return false;
-		}		
+		}
+		//OCULTA EL BOTÓN LANZAR
+		document.formu.ejecutar.style.display="none";
+		
+		//<input type="button" name="aumentar" value="+">	
+		let aumentar=document.createElement("input");
+		aumentar.type="button";
+		aumentar.setAttribute("name","aumentar");
+		aumentar.value="+";
+		aumentar.onclick=anyadirElemento;
+		
+		//<button type="button" name="reducir">-</button>
+		let reducir=document.createElement("button");
+		reducir.type="button";
+		reducir.name="reducir";
+		let textoReducir=document.createTextNode("-");
+		reducir.appendChild(textoReducir);
+		reducir.addEventListener("click",quitarElemento);
+		
+		let fieldset=document.querySelector("fieldset");
+		fieldset.appendChild(aumentar);
+		fieldset.appendChild(reducir);
+		
 		menu();
 		event.preventDefault();
 	}
