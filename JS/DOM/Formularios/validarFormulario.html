@@ -47,18 +47,12 @@
 			}
 		}*/
 		
-		function validarNombre(){
-			let f=document.formulario;
 
-
-				
-			
-		}
-		function validarApellidos(){
+		function validarCustom(){
 			let f=document.formulario;
 
 			//CUANDO SEAN VARIAS VALIDACIONES TENERLAS VINCULADAS
-			if(f.nombre.value=="")
+			if(f.nombre.value.length==0)
 				f.nombre.setCustomValidity("Error el nombre no puede quedar vacío");
 			else{
 				f.nombre.setCustomValidity("");
@@ -84,10 +78,7 @@
 				f.informacion.setCustomValidity("");
 
 		}		
-		function validarCheck(){
-			let f=document.formulario;
-
-		}		
+		
 		
 		window.onload=function(){
 			let f=document.formulario;
