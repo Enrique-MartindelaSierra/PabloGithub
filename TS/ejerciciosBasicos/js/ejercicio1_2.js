@@ -12,6 +12,8 @@ const PERSONAJE = {
 let p2 = { nombre: "Pablo", edad: 30 };
 //EJERCICIO 2
 class Rombo {
+    diagonalVertical;
+    diagonalHorizontal;
     /*
     public diagonalVertical:number;
     public diagonalHorizontal:number;
@@ -31,4 +33,3 @@ class Rombo {
 }
 let r1 = new Rombo(10, 20);
 document.write("El área del Rombo es:" + r1.calcularArea());
-//# sourceMappingURL=ejercicio1.js.map
