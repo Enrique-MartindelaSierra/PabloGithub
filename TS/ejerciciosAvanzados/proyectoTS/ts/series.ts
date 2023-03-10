@@ -19,7 +19,7 @@
 
     let arraySeries:Series[]=[];
 
-    function guardar(){
+    function guardar():void|boolean{
         //RECUPERAR DATOS DEL FORMULARIO
         let nombreSerie:string=(<HTMLInputElement>document.getElementById("serie")).value;
         let capitulosSerie:number=+(<HTMLInputElement>document.getElementById("capitulos")).value;
@@ -49,19 +49,71 @@
     
     }
 
-    function listar(){
+    function crearCelda(tr:HTMLTableRowElement, contenido:string):void{
+        let td:HTMLTableCellElement;
+        let texto:Text;
+        
+        td=document.createElement("td");
+        texto=document.createTextNode(contenido);
+        td.appendChild(texto);
+        td.style.border="1px solid black";
+        tr.appendChild(td);
+    }
+
+    function listar():void|boolean{
         //1- ACCEDER AL DIV
+        let listadoDiv:HTMLDivElement=<HTMLDivElement>document.getElementById("listado");
 
         //2- COMPROBAR SI YA HAY UNA ESTRUCTURA HECHA, Y SI LA HAY ELIMINARLA (removeChild)
+        let hijoDiv:number=listadoDiv.children.length;
+        if(hijoDiv>0)
+            listadoDiv.removeChild(listadoDiv.children[0]);
 
         //3- OBTENER EL VALOR DEL DESPLEGABLE
-
-        let x:Text=document.createTextNode("sss");
+        let nodoDesplegable:HTMLSelectElement=<HTMLSelectElement>document.getElementById("modo");
+        //let nodoDesplegable:HTMLSelectElement=document.forms["formu"].modo;
+        let desplegable:string=nodoDesplegable.value;
 
         //4.1- LISTA: CREAR CON EL DOM UNA LISTA UL-LI CON LOS DATOS DEL ARRAY
-        //4.2- TABLA: CREAR CON EL DOM UNA TABLA TABLE - TR -TD CON LOS DATOS DEL ARRAY
+        if(desplegable=="lista"){
+            let ul:HTMLUListElement=document.createElement("ul");
+            let li:HTMLLIElement;
+            let texto:Text;
 
+            for(let i:number=0;i<arraySeries.length;i++){
+                li=document.createElement("li");
+                texto=document.createTextNode(arraySeries[i].getSeries()+
+                    " Capítulos: ("+arraySeries[i].getCapitulos()+")");
+                li.appendChild(texto);
+                ul.appendChild(li);
+            }
+            listadoDiv.appendChild(ul);
+
+        }
+               
+        //4.2- TABLA: CREAR CON EL DOM UNA TABLA TABLE - TR -TD CON LOS DATOS DEL ARRAY
+        else if(desplegable=="tabla"){
+            let tabla:HTMLTableElement=document.createElement("table");
+            tabla.style.border="1px solid black";
+
+            let tr:HTMLTableRowElement;
+
+            for(let i:number=0;i<arraySeries.length;i++){
+                tr=document.createElement("tr");
+
+                crearCelda(tr,arraySeries[i].getSeries());     
+                crearCelda(tr,"Capítulos: ("+arraySeries[i].getCapitulos()+")");  
+                tabla.appendChild(tr);      
+            }
+            listadoDiv.appendChild(tabla);  
+
+        }
         //5- Mensaje de error en caso del desplegable vacío
+        else
+        {
+            alert("Error!, el desplegable no puede quedarse vacío");
+            return false;
+        }
     }
 
     function arrancar(){
