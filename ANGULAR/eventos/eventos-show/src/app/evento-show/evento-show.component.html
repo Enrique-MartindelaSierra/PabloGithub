@@ -1,0 +1,18 @@
+<div class="row" *ngIf="eventos && eventos.length; else noEventos">
+  <div class="col-6 mt-4" *ngFor="let ev of eventos">
+    <!-- Repetir esto por cada evento -->
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{ev.title}}</h4>
+        <p class="card-text">{{ev.description}}</p>
+      </div>
+      <div class="card-footer text-muted">
+        {{ev.date}}
+        <span class="float-right">{{ev.price}}€</span>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noEventos>
+  <h3>No hay eventos disponibles</h3>
+</ng-template>
