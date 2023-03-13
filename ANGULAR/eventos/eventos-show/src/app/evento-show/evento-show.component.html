@@ -2,6 +2,8 @@
   <div class="col-6 mt-4" *ngFor="let ev of eventos">
     <!-- Repetir esto por cada evento -->
     <div class="card">
+      <img class="card-img-top" [src]="ev.image" [alt]="ev.title" [title]="ev.title"
+      [style.height.px]="alturaImagen">
       <div class="card-body">
         <h4 class="card-title">{{ev.title}}</h4>
         <p class="card-text">{{ev.description}}</p>
