@@ -2,16 +2,25 @@ import { Component } from '@angular/core';
 import { IProduct } from '../interfaces/i-product';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent {
-  titulo: string = 'LISTA DE PRODUCTOS';
+  titulo = 'LISTA DE PRODUCTOS';
+  alturaImagen=40;
+  colorTs="red";
+  quieroEstilo1=true;
+  quieroEstilo2=false;
+  showImage=true;
+  filterSearch = "Sin filtro";
+
   cabeceras = {
     descripcion: 'Producto',
     precio: 'Precio',
     avail: 'Disponible',
+    image: 'Imagen'
   };
   productos: IProduct[] = [
     {
@@ -30,5 +39,40 @@ export class ProductListComponent {
       imageUrl: 'assets/motherboard.jpg',
       rating: 4,
     },
+    {
+      id: 2,
+      desc: 'LGA1151 Motherboard',
+      avail: new Date('2016-09-15'),
+      price: 96.95,
+      imageUrl: 'assets/motherboard.jpg',
+      rating: 4,
+    },
+    {
+      id: 2,
+      desc: 'LGA1151 Motherboard',
+      avail: new Date('2016-09-15'),
+      price: 96.95,
+      imageUrl: 'assets/motherboard.jpg',
+      rating: 4,
+    },
   ];
+
+  toggleImage(){
+    this.showImage=!this.showImage;
+  }
+  cambiarEstilo(){
+    const radio=document.getElementsByTagName("input")[0];
+
+    if(radio.checked){
+      this.quieroEstilo1=true;
+      this.quieroEstilo2=false;
+    }
+    else{
+      this.quieroEstilo1=false;
+      this.quieroEstilo2=true;
+    }
+    //Con CHANGE:
+    //this.quieroEstilo1=!this.quieroEstilo1;
+    //this.quieroEstilo2=!this.quieroEstilo2;
+  }
 }
