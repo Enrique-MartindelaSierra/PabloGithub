@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { IEvento } from '../interfaces/i-evento';
 
 @Component({
@@ -6,9 +6,27 @@ import { IEvento } from '../interfaces/i-evento';
   templateUrl: './evento-show.component.html',
   styleUrls: ['./evento-show.component.css']
 })
-export class EventoShowComponent {
+export class EventoShowComponent implements OnInit, OnChanges, DoCheck, OnDestroy{
+
+  ngOnInit(){
+    console.log("ngOnInit");
+  }
+  ngOnChanges(){
+    console.log("ngOnChanges");
+  }
+  ngDoCheck(){
+    console.log("ngDoCheck");
+  }
+  ngOnDestroy(){
+    console.log("ngOnDestroy");
+  }
+
+
   alturaImagen=200;
   search="";
+  desplegable="";
+  fondoRojo=false;
+  fondoAzul=false;
 
   newEvent:IEvento={
     title:"",
@@ -44,7 +62,7 @@ export class EventoShowComponent {
 
   orderDate(){
     this.search="";
-    this.eventos.sort((evento1,evento2)=>evento1.date.getTime()-evento2.date.getTime());
+    this.eventos.sort((evento1,evento2)=>evento1.date.getMilliseconds()-evento2.date.getMilliseconds());
   }
 
   orderPrice(){
@@ -55,6 +73,14 @@ export class EventoShowComponent {
 
   addEvent(){
     console.log("Insertar Evento en el Array");
+    this.eventos.push(this.newEvent);
+    this.newEvent={
+      title:"",
+      description:"",
+      image:"",
+      price:0,
+      date:new Date("")
+    };
   }
 
   changeImage(fileInput: HTMLInputElement) {
@@ -75,4 +101,19 @@ export class EventoShowComponent {
 
    }
 
+   cambiarFondo(){
+    if(this.desplegable!="")
+      if(this.desplegable=="rojo"){
+        this.fondoRojo=true;
+        this.fondoAzul=false;
+      }
+      else{
+        this.fondoRojo=false;
+        this.fondoAzul=true;
+      }
+   else{
+    this.fondoRojo=false;
+    this.fondoAzul=false;
+   }
+  }
 }
