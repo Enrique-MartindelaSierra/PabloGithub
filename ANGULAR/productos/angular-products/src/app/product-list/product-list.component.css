@@ -1,7 +1,3 @@
-td {
-  vertical-align: middle;
-}
-
 .estilo1{
   color:white;
   background-color: red;
@@ -12,3 +8,14 @@ td {
   color:yellow;
   font-size:3em;
 }
+
+.headers {
+  font-weight: bold;
+  border-bottom: 1px solid #CCC;
+  border-top: 1px solid #CCC;
+  padding: 5px;
+  margin-bottom: 5px;
+  }
+  product-item:nth-child(odd) {
+  background: #EEE;
+  }

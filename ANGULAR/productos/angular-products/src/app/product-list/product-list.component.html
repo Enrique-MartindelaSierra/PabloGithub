@@ -17,31 +17,19 @@
           Filtrando por: {{filterSearch}}</label>
       </div>
     </form>
-    <div class="table-responsive" *ngIf="productos && productos.length">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>
-              <button class="btn btn-sm" [ngClass]="{'btn-danger': showImage, 'btn-primary': !showImage}"
-                (click)="toggleImage()">
-                {{showImage?'Ocultar':'Mostrar'}} imagen
-              </button>
-            </th>
-            <th>{{cabeceras.descripcion}}</th>
-            <th>{{cabeceras.precio }}</th>
-            <th>{{cabeceras.avail}}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let product of productos | productFilter:filterSearch">
-            <td><img [src]="product.imageUrl" *ngIf="showImage" [alt]="product.desc" [title]="product.desc"
-                [style.height.px]="alturaImagen"></td>
-            <td [ngStyle]="{'color':colorTs}">{{product.desc|uppercase}}</td>
-            <td [ngClass]="{'estilo1':quieroEstilo1,'estilo2':quieroEstilo2}">{{product.price|currency:"EUR"}}</td>
-            <td>{{product.avail|date:"dd/MM/y"}}</td>
-          </tr>
-        </tbody>
-      </table>
+    <div *ngIf="productos && productos.length">
+      <div class="row headers no-gutters">
+        <div class="col-2">
+          <button class="btn btn-sm" [ngClass]="{'btn-danger': showImage, 'btn-primary':!showImage}" (click)="toggleImage()">
+            {{showImage?'Hide':'Show'}} images
+          </button>
+        </div>
+        <div class="col-4">{{cabeceras.descripcion}}</div>
+        <div class="col">{{cabeceras.precio}}</div>
+        <div class="col">{{cabeceras.avail}}</div>
+      </div>
+      <product-item class="row no-gutters" *ngFor="let product of productos | productFilter:filterSearch">
+      </product-item>
     </div>
   </div>
 </div>
