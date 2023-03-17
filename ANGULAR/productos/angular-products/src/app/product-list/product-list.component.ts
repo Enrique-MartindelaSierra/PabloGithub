@@ -20,7 +20,8 @@ export class ProductListComponent {
     descripcion: 'Producto',
     precio: 'Precio',
     avail: 'Disponible',
-    image: 'Imagen'
+    image: 'Imagen',
+    rating: 'Puntuación'
   };
   productos: IProduct[] = [
     {
@@ -45,7 +46,7 @@ export class ProductListComponent {
       avail: new Date('2016-09-15'),
       price: 96.95,
       imageUrl: 'assets/motherboard.jpg',
-      rating: 4,
+      rating: 3,
     },
     {
       id: 2,
@@ -53,7 +54,7 @@ export class ProductListComponent {
       avail: new Date('2016-09-15'),
       price: 96.95,
       imageUrl: 'assets/motherboard.jpg',
-      rating: 4,
+      rating: 2,
     },
   ];
 

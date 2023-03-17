@@ -27,8 +27,12 @@
         <div class="col-4">{{cabeceras.descripcion}}</div>
         <div class="col">{{cabeceras.precio}}</div>
         <div class="col">{{cabeceras.avail}}</div>
+        <div class="col">{{cabeceras.rating}}</div>
       </div>
-      <product-item class="row no-gutters" *ngFor="let product of productos | productFilter:filterSearch">
+      <product-item class="row no-gutters"
+      [productoHijo]="product" [mostrarImagen]="showImage"
+      [quieroEstilo1]="quieroEstilo1" [quieroEstilo2]="quieroEstilo2"
+      *ngFor="let product of productos | productFilter:filterSearch">
       </product-item>
     </div>
   </div>

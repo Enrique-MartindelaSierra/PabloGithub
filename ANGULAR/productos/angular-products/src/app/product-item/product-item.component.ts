@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IProduct } from '../interfaces/i-product';
 
 @Component({
@@ -10,15 +10,8 @@ import { IProduct } from '../interfaces/i-product';
 export class ProductItemComponent {
   alturaImagen=40;
   colorTs="red";
-  product:IProduct={
-    id: 2,
-    desc: 'LGA1151 Motherboard',
-    avail: new Date('2016-09-15'),
-    price: 96.95,
-    imageUrl: 'assets/motherboard.jpg',
-    rating: 4,
-  };
-  showImage=true;
-  quieroEstilo1=false;
-  quieroEstilo2=true;
+  @Input() productoHijo!:IProduct;
+  @Input() mostrarImagen!:boolean;
+  @Input() quieroEstilo1!:boolean;
+  @Input() quieroEstilo2!:boolean;
 }
