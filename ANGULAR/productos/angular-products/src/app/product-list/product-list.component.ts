@@ -9,8 +9,8 @@ import { IProduct } from '../interfaces/i-product';
 })
 export class ProductListComponent {
   titulo = 'LISTA DE PRODUCTOS';
-  alturaImagen=40;
-  colorTs="red";
+
+
   quieroEstilo1=true;
   quieroEstilo2=false;
   showImage=true;
