@@ -1,7 +1,7 @@
 export interface IEvento {
   title: string;
   image: string;
-  date: string;
+  date: Date;
   description: string;
   price: number;
 }

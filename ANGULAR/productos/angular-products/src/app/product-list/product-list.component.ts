@@ -14,7 +14,7 @@ export class ProductListComponent {
   quieroEstilo1=true;
   quieroEstilo2=false;
   showImage=true;
-  filterSearch = "Sin filtro";
+  filterSearch = "";
 
   cabeceras = {
     descripcion: 'Producto',
