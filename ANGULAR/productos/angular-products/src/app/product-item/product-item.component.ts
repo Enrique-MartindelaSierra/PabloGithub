@@ -14,4 +14,8 @@ export class ProductItemComponent {
   @Input() mostrarImagen!:boolean;
   @Input() quieroEstilo1!:boolean;
   @Input() quieroEstilo2!:boolean;
+
+  changeRating(estrella:number){
+    this.productoHijo.rating=estrella;
+  }
 }
