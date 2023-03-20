@@ -22,7 +22,7 @@ export class EventoShowComponent implements OnInit, OnChanges, DoCheck, OnDestro
   }
 
 
-  alturaImagen=200;
+
   search="";
   desplegable="";
   fondoRojo=false;
@@ -116,4 +116,9 @@ export class EventoShowComponent implements OnInit, OnChanges, DoCheck, OnDestro
     this.fondoAzul=false;
    }
   }
+
+  deleteEvento(evento:IEvento){
+    this.eventos=this.eventos.filter(ev=>ev!=evento);
+  }
+
 }
