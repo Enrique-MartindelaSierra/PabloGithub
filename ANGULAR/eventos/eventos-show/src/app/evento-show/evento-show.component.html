@@ -44,20 +44,10 @@
     <option value="rojo">Fondo Rojo</option>
     <option value="azul">Fondo Azul</option>
   </select>
-  <div class="col-6 mt-4" *ngFor="let ev of eventos|eventoFiltro:search">
-    <!-- Repetir esto por cada evento -->
-    <div class="card" [ngClass]="{'esFondoRojo':fondoRojo,'esFondoAzul':fondoAzul}">
-      <img class="card-img-top" [src]="ev.image" [alt]="ev.title" [title]="ev.title" [style.height.px]="alturaImagen">
-      <div class="card-body">
-        <h4 class="card-title">{{ev.title}}</h4>
-        <p class="card-text">{{ev.description|titlecase}}</p>
-      </div>
-      <div class="card-footer text-muted">
-        {{ev.date|date:"dd/MM/y"}}
-        <span class="float-right">{{ev.price|currency:"EUR"}}</span>
-      </div>
-    </div>
-  </div>
+  <evento-item class="col-6 mt-4" *ngFor="let ev of eventos|eventoFiltro:search"
+  [ev]="ev" [fondoRojo]="fondoRojo" [fondoAzul]="fondoAzul"
+  (borrarEvento)="deleteEvento(ev)">
+  </evento-item>
 </div>
 <ng-template #noEventos>
   <h3>No hay eventos disponibles</h3>
