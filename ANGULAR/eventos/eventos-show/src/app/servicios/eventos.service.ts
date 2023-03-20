@@ -1,36 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map, Observable } from 'rxjs';
 import { IEvento } from '../interfaces/i-evento';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventosService {
+  private URL="http://curso.i234.me:8080/eventos";
+  constructor(private http:HttpClient) { }
 
-  //constructor() { }
-
-  conseguirEventos():IEvento[]{
-    return [
-      {
-        title: "Evento 1 Verano",
-        image: 'assets/evento1.jpg',
-        date: new Date('2016-10-03'),
-        description: "Un evento espectacular",
-        price: 100
-      },
-      {
-        title: "Evento 2 Primavera",
-        image: 'assets/evento2.jpg',
-        date: new Date('2021-10-03'),
-        description: "Un evento de música",
-        price: 70
-      },
-      {
-        title: "Evento 3 Verano",
-        image: 'assets/acdc.jpg',
-        date: new Date('2022-10-03'),
-        description: "Sin descripción",
-        price: 30
-      }
-    ];
+  conseguirEventos():Observable<IEvento[]>{
+    return this.http.get<{eventos:IEvento[],ok:boolean}>(this.URL)
+    .pipe(map(response=>response.eventos));
   }
 }

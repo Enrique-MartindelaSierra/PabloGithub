@@ -14,7 +14,10 @@ export class EventoShowComponent implements OnInit{
   eventos: IEvento[] = [];
   ngOnInit(){
     console.log("ngOnInit");
-    this.eventos=this.servicios.conseguirEventos();
+    //this.eventos=this.servicios.conseguirEventos();
+    this.servicios.conseguirEventos().subscribe(
+      eventosFromServer=>this.eventos=eventosFromServer
+    );
   }
 
   /*ngOnChanges(){

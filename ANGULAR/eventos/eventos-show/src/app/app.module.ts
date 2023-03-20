@@ -8,6 +8,7 @@ import { EventoFiltroPipe } from './pipes/evento-filtro.pipe';
 import { EventoItemComponent } from './evento-item/evento-item.component';
 import { EventoAddComponent } from './evento-add/evento-add.component';
 import { EventosService } from './servicios/eventos.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EventosService } from './servicios/eventos.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [EventosService],
   bootstrap: [AppComponent]
