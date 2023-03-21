@@ -6,19 +6,24 @@ import { AppComponent } from './app.component';
 import { EventoShowComponent } from './evento-show/evento-show.component';
 import { EventoFiltroPipe } from './pipes/evento-filtro.pipe';
 import { EventoItemComponent } from './evento-item/evento-item.component';
+import { EventoAddComponent } from './evento-add/evento-add.component';
+import { EventosService } from './servicios/eventos.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     EventoShowComponent,
     EventoFiltroPipe,
-    EventoItemComponent
+    EventoItemComponent,
+    EventoAddComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [EventosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

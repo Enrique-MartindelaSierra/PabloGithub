@@ -7,6 +7,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductFilterPipe } from './pipes/product-filter.pipe';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
+import { ProductosService } from './servicios/productos.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,10 @@ import { StarRatingComponent } from './star-rating/star-rating.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ProductosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

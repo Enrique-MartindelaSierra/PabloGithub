@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../interfaces/i-product';
+import { ProductosService } from '../servicios/productos.service';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -7,8 +8,22 @@ import { IProduct } from '../interfaces/i-product';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
   titulo = 'LISTA DE PRODUCTOS';
+
+  constructor(private servicio:ProductosService){}
+
+  ngOnInit(){
+    //this.productos=this.servicio.getProductos();
+    this.servicio.getProductos().subscribe(
+      productosVienenServidor=>this.productos=productosVienenServidor
+    );
+    /*this.servicio.getProductos().subscribe({
+      next:productosVienenServidor=>this.productos=productosVienenServidor,
+      error:errores=>console.log(errores),
+      complete:()=>console.log("Productos Traidos")
+    });*/
+  }
 
 
   quieroEstilo1=true;
@@ -23,40 +38,7 @@ export class ProductListComponent {
     image: 'Imagen',
     rating: 'Puntuación'
   };
-  productos: IProduct[] = [
-    {
-      id: 1,
-      desc: 'SSD hard drive',
-      avail: new Date('2016-10-03'),
-      price: 75,
-      imageUrl: 'assets/ssd.jpg',
-      rating: 5,
-    },
-    {
-      id: 2,
-      desc: 'LGA1151 Motherboard',
-      avail: new Date('2016-09-15'),
-      price: 96.95,
-      imageUrl: 'assets/motherboard.jpg',
-      rating: 4,
-    },
-    {
-      id: 3,
-      desc: 'LGA1152 Motherboard',
-      avail: new Date('2016-09-17'),
-      price: 96.95,
-      imageUrl: 'assets/motherboard.jpg',
-      rating: 3,
-    },
-    {
-      id: 5,
-      desc: 'LGA1153 Motherboard',
-      avail: new Date('2016-09-12'),
-      price: 96.95,
-      imageUrl: 'assets/motherboard.jpg',
-      rating: 2,
-    },
-  ];
+  productos: IProduct[] = [];
 
   toggleImage(){
     this.showImage=!this.showImage;
