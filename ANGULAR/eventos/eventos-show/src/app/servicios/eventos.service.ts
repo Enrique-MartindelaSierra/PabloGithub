@@ -14,4 +14,8 @@ export class EventosService {
     return this.http.get<{eventos:IEvento[],ok:boolean}>(this.URL)
     .pipe(map(response=>response.eventos));
   }
+
+  addEvento(evento IEvento):Observable<IEvento>{
+    return this.http.post<{evento:IEvento}>().pipe(map())
+  }
 }
