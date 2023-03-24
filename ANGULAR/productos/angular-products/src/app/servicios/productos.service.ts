@@ -8,7 +8,7 @@ import { IProduct } from '../interfaces/i-product';
 })
 export class ProductosService {
 
- private productosURL="http://curso.i234.me:8080/productos";
+ private productosURL="productos";
 
  constructor(private http:HttpClient) { }
 
