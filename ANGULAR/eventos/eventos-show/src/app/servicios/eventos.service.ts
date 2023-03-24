@@ -7,7 +7,7 @@ import { IEvento } from '../interfaces/i-evento';
   providedIn: 'root'
 })
 export class EventosService {
-  private URL="http://curso.i234.me:8080/eventos";
+  private URL="eventos";
   constructor(private http:HttpClient) { }
 
   conseguirEventos():Observable<IEvento[]>{
