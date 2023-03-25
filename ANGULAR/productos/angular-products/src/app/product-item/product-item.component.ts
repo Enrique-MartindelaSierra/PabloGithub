@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IProduct } from '../interfaces/i-product';
+import { ProductosService } from '../servicios/productos.service';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -15,7 +16,13 @@ export class ProductItemComponent {
   @Input() quieroEstilo1!:boolean;
   @Input() quieroEstilo2!:boolean;
 
+  constructor(private productosServicios:ProductosService){}
+
   changeRating(estrella:number){
-    this.productoHijo.rating=estrella;
+    //this.productoHijo.rating=estrella;
+    this.productosServicios.modificarEstrella(this.productoHijo.id,estrella).subscribe({
+      next:respu=>{this.productoHijo.rating=estrella;console.log(respu)},
+      error:e=>console.log(e)
+    });
   }
 }
