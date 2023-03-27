@@ -12,7 +12,8 @@
 <form class="mt-4" (ngSubmit)="addEvent()">
   <div class="form-group">
     <label for="id">ID</label>
-    <input type="text" class="form-control" name="id" [(ngModel)]="newEvent.id" placeholder="Mete un ID si quieres modificar">
+    <input type="text" class="form-control" name="id" [(ngModel)]="newEvent.id"
+    placeholder="Mete un ID si quieres modificar" (blur)="obtenerEvento()">
   </div>
   <div class="form-group">
     <label for="name">Nombre</label>

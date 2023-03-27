@@ -32,6 +32,18 @@ export class EventosService {
       ));
   }
 
+
+  modifyEvento(evento:IEvento):Observable<IEvento>{
+    return this.http.put<{evento:IEvento,mensaje:string}>(this.URL+"/"+evento.id,evento).pipe(
+      map(response=>{
+        console.log(response.mensaje);
+        return response.evento;
+      }),
+      catchError((respuesta:HttpErrorResponse)=>throwError(()=>
+      new Error("Error al insertar la imagen. Respuesta Server:"+respuesta.status+" "+respuesta.message+" "))
+      ));
+  }
+
   /*borrarEvento(idEvento:number):Observable<number>{
     return this.http.delete<{evento:number}>(this.URL+"/"+idEvento).pipe(
       map(response=>response.evento)
