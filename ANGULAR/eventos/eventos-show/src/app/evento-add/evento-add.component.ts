@@ -20,7 +20,7 @@ export class EventoAddComponent implements OnInit {
     this.newEvent={
       nombre:"",
       descripcion:"",
-      imagen:"",
+      imagen:undefined,
       precio:0,
       fecha:new Date("")
     };

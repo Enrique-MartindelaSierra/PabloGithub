@@ -11,6 +11,10 @@
 </nav>
 <form class="mt-4" (ngSubmit)="addEvent()">
   <div class="form-group">
+    <label for="id">ID</label>
+    <input type="text" class="form-control" name="id" [(ngModel)]="newEvent.id" placeholder="Mete un ID si quieres modificar">
+  </div>
+  <div class="form-group">
     <label for="name">Nombre</label>
     <input type="text" class="form-control" name="title" [(ngModel)]="newEvent.nombre" placeholder="Enter name">
   </div>
@@ -29,7 +33,7 @@
   </div>
   <div class="form-group">
     <label for="image">Imagen</label>
-    <input [(ngModel)]="newEvent.imagen" type="file" class="form-control" name="image" #fileImage
+    <input (ngModel)="newEvent.imagen" type="file" class="form-control" name="image" #fileImage
       (change)="changeImage(fileImage)">
   </div>
   <img [src]="newEvent.imagen" alt="" class="img-thumbnail">
