@@ -11,4 +11,5 @@ export const APP_ROUTES: Route[] = [
   { path: '', redirectTo: '/eventos', pathMatch: 'full' },
   // Ruta que no coincide con ninguna de las anteriores
   { path: '**', redirectTo: '/eventos', pathMatch: 'full' }
+
 ]
