@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { IEvento } from '../interfaces/i-evento';
 import { EventosService } from '../servicios/eventos.service';
 
@@ -25,15 +26,18 @@ export class EventoAddComponent implements OnInit {
     };
   }
 
-  constructor(private eventosService:EventosService){}
+  constructor(private eventosService:EventosService,
+    private enrutarEventosShow:Router){}
 
-  @Output() eventoNuevo=new EventEmitter<IEvento>();
+  //@Output() eventoNuevo=new EventEmitter<IEvento>();
 
   addEvent(){
     this.eventosService.addEvento(this.newEvent).subscribe(
       pepe=>{
-        this.eventoNuevo.emit(pepe);
+        //this.eventoNuevo.emit(pepe);
+        console.log("Me ha generado el nuevo evento con id:"+pepe.id);
         this.inicializarEvento();
+        this.enrutarEventosShow.navigate(['/eventos']);
       }
     )
   }
