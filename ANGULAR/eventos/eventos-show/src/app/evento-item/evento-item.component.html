@@ -1,7 +1,11 @@
 <div class="card" [ngClass]="{'esFondoRojo':fondoRojo,'esFondoAzul':fondoAzul}">
-  <img class="card-img-top" [src]="ev.imagen" [alt]="ev.nombre" [title]="ev.nombre" [style.height.px]="alturaImagen">
+  <a [routerLink]="['/eventos',ev.id]">
+    <img class="card-img-top" [src]="ev.imagen" [alt]="ev.nombre" [title]="ev.nombre" [style.height.px]="alturaImagen">
+  </a>
   <div class="card-body">
-    <h4 class="card-title">{{ev.nombre}}</h4>
+    <a [routerLink]="['/eventos',ev.id]">
+      <h4 class="card-title">{{ev.nombre}}</h4>
+    </a>
     <p class="card-text">{{ev.descripcion|titlecase}}</p>
   </div>
   <div class="card-footer text-muted">
