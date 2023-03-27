@@ -10,6 +10,9 @@ import { EventoAddComponent } from './evento-add/evento-add.component';
 import { EventosService } from './servicios/eventos.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BaseUrlInterceptor } from './interceptores/base-url.interceptor';
+import { EventoDetalleComponent } from './evento-detalle/evento-detalle.component';
+import { RouterModule } from '@angular/router';
+import { APP_ROUTES } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,15 @@ import { BaseUrlInterceptor } from './interceptores/base-url.interceptor';
     EventoShowComponent,
     EventoFiltroPipe,
     EventoItemComponent,
-    EventoAddComponent
+    EventoAddComponent,
+    EventoDetalleComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [EventosService,
   {
