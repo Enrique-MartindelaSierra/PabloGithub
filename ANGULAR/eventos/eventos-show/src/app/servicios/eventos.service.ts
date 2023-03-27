@@ -11,24 +11,27 @@ export class EventosService {
   constructor(private http:HttpClient) { }
 
   conseguirEventos():Observable<IEvento[]>{
-    return this.http.get<{eventos:IEvento[]}>(this.URL)
-    .pipe(map(response=>response.eventos));
+    return this.http.get<IEvento[]>(this.URL)
+    .pipe(map(response=>response));
   }
 
   addEvento(evento:IEvento):Observable<IEvento>{
-    return this.http.post<{evento:IEvento}>(this.URL,evento).pipe(
-      map(response=>{return response.evento;}));
+    return this.http.post<{evento:IEvento,mensaje:string}>(this.URL,evento).pipe(
+      map(response=>{
+        console.log(response.mensaje);
+        return response.evento;
+      }));
   }
 
-  borrarEvento(idEvento:number):Observable<number>{
+  /*borrarEvento(idEvento:number):Observable<number>{
     return this.http.delete<{evento:number}>(this.URL+"/"+idEvento).pipe(
       map(response=>response.evento)
     );
-  }
+  }*/
   //EN VUESTRO SERVER
-  /*borrarEvento(idEvento:number):Observable<string>{
+  borrarEvento(idEvento:number):Observable<string>{
     return this.http.delete<{mensaje:string}>(this.URL+"/"+idEvento).pipe(
       map(response=>response.mensaje)
     );
-  }*/
+  }
 }

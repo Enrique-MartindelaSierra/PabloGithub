@@ -17,11 +17,11 @@ export class EventoAddComponent implements OnInit {
 
   inicializarEvento(){
     this.newEvent={
-      title:"",
-      description:"",
-      image:"",
-      price:0,
-      date:new Date("")
+      nombre:"",
+      descripcion:"",
+      imagen:"",
+      precio:0,
+      fecha:new Date("")
     };
   }
 
@@ -51,7 +51,7 @@ export class EventoAddComponent implements OnInit {
         this.newEvent.image = reader.result.toString();
       else
       this.newEvent.image = "";*/
-      this.newEvent.image = reader.result as string;
+      this.newEvent.imagen = reader.result as string;
     });
 
    }

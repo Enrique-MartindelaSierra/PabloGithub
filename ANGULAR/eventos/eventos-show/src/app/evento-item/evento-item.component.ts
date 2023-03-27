@@ -21,7 +21,7 @@ export class EventoItemComponent {
     //this.borrarEvento.emit();
     this.eventosServicio.borrarEvento(<number>this.ev.id).subscribe({
       next:borrados=>{
-        console.log("Filas eliminadas:"+borrados);
+        console.log("Mensaje:"+borrados);
         this.borrarEvento.emit();
       },
       error:error=>console.log(error)
